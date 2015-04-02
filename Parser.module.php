@@ -15,7 +15,7 @@ class Parser extends CMSModule
 	function MinimumCMSVersion() {return "1.11.13";}
 	function IsPluginModule() {return false;}
 	function HasAdmin() {return true;}
-	function GetAdminSection() {return 'extension';}
+	function GetAdminSection() {return 'extensions';}
 	function VisibleToAdminUser() {return true;}
 	function InitializeFrontend() {}
 	function InitializeAdmin() {}
