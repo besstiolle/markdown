@@ -23,8 +23,8 @@ $smarty->assign('form_save',$this->CreateFormStart($id,'admin_save'));
 
 
 $text = file_get_contents(dirname(__FILE__).'/default.md');
-//echo $this->GetParserInstance()->process($text);
-$text = Engine::initInstance()->process($text);
+//echo $this->GetParserInstance()->process($text, true);
+$text = Engine::initInstance()->process($text, true); //Activate debug in admin part
 $smarty->assign('text',$text);
 
 

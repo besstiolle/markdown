@@ -12,8 +12,9 @@ $this->SetPreference('process_codepre',true);
 
 
 //Register Smarty Plugin
-$pluginManager = cms_module_smarty_plugin_manager::get_instance();
-$pluginManager->addStatic('Parser', 'markdown', 'modifier', 'exec_parser' , TRUE, $pluginManager::AVAIL_FRONTEND);
+//$this->RegisterModulePlugin(TRUE);
+$this->RegisterSmartyPlugin('markdown','modifier','exec_parser', true, 0);
+
 
 // put mention into the admin log
 $this->Audit( 0, 

@@ -92,7 +92,7 @@ class Engine{
 		$end = microtime(true);
 		
 
-		if($debug || true){
+		if($debug){
 			$text .= "<h1> DEBUG : Time of execution : ".round(($end-$start) * 1000,2)."ms (".round(($endP-$startP) * 1000,2)."ms for parsing)</h1>";
 		}
 
