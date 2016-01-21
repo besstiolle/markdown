@@ -37,7 +37,8 @@ if (!function_exists('cmsms')) exit;
 if($this->GetPreference('process_content',true))
 {
     $out = Parser::exec_parser($params['content']);
-    $params['content'] = $out;
+    $params['content'] = str_replace(array('<code','</code>'),array('{literal}<code','</code>{/literal}'),$out);
+    //debug_display($params['content']);die();
 }
 #
 # EOF
