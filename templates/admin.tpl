@@ -45,7 +45,17 @@
 	</ul>
 	<p><exp>[*]</exp> : seconde(s) for processing a 2K caracters string 1000 times.</p>
 </div>
-
+<div class='box'>
+	<h2>Automatic Processing of Content Blocks</h2>
+	<label for='{$actionid}process_content1'>Process Content Blocks with Markdown</label>
+	<input type='radio' name='{$actionid}process_content' id='{$actionid}process_content1' value='1' {if $process_content}checked{/if}>
+	<label for='{$actionid}process_security0'>No</label>
+	<input type='radio' name='{$actionid}process_content' id='{$actionid}process_content0' value='0' {if !$process_content}checked{/if}>
+	{literal}
+		<p>Selecting this will have all the {content} with the type of "Content" process with Markdown before process thru Smarty.</p>
+		<p>If you select "no" will need to use the Markdown modifier to process it which will be after it is process with Smarty -- {$main_content|markdown}.</p>
+	{/literal}
+</div>
 <div class='box'>
 	<h2>Select a Security Policy against Markdown's vulnerabilities</h2>
 	<p><b>For Security reason</b>, you can't trust your visitors so you shouldn't process data blindly with this module. If you don't trust the editors, you can activate this option which will try to improve the security of the parsers. It will desactivate Javascript, Iframe and other in the Markdown text. If you activate this option, you should take a look at the next options</p>

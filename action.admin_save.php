@@ -19,6 +19,9 @@ if(isset($params['process_security'])){
 if(isset($params['process_codepre'])){
 	$this->SetPreference('process_codepre',$params['process_codepre']);
 }
+if(isset($params['process_content'])){
+	$this->SetPreference('process_content',$params['process_content']);
+}
 
 
 $this->redirect($id,'defaultadmin');

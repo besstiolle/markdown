@@ -10,6 +10,7 @@ $process_quote = $this->GetPreference('process_quote',true);
 $process_img = $this->GetPreference('process_img',true);
 $process_security = $this->GetPreference('process_security',true);
 $process_codepre = $this->GetPreference('process_codepre',true);
+$process_content = $this->GetPreference('process_content',true);
 
 $smarty->assign("itemsEngine", $this->CreateInputDropdown ($id, 'default_engine', $itemsEngine, -1, $default_engine));
 //$smarty->assign('process_smarty_security',$process_smarty_security);
@@ -17,6 +18,7 @@ $smarty->assign('process_quote',$process_quote);
 $smarty->assign('process_img',$process_img);
 $smarty->assign('process_security',$process_security);
 $smarty->assign('process_codepre',$process_codepre);
+$smarty->assign('process_content',$process_content);
 
 
 $smarty->assign('form_save',$this->CreateFormStart($id,'admin_save'));
