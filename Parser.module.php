@@ -3,9 +3,13 @@
 
 class Parser extends CMSModule
 {   
+	protected $_loaded;
+
 	public function __construct()
     {
         parent::__construct();
+        $this->_loaded = false;
+
         $smarty = CmsApp::get_instance()->GetSmarty();
         if( !$smarty ) return;
         
@@ -13,10 +17,10 @@ class Parser extends CMSModule
     }
 	function GetName() {return 'Parser';}
 	function GetFriendlyName() {return $this->Lang('friendlyname');}
-	function GetVersion() {return '1.0.1';}
+	function GetVersion() {return '1.0.2.beta1jb';}
 	function GetDependencies() {return array();}
 	function GetHelp() {return $this->Lang('help').Parser::exec_parser(file_get_contents(__DIR__."/README.md"));}
-	function GetAuthor() {return 'Kevin Danezis (aka Bess)';}
+	function GetAuthor() {return 'Kevin Danezis (aka2Bess)';}
 	function GetAuthorEmail() {return 'contact at furie point be';}
 	function GetChangeLog() {return $this->Lang('changelog');}
 	function GetAdminDescription() {return $this->Lang('moddescription');}
@@ -54,6 +58,8 @@ class Parser extends CMSModule
  
     public function WYSIWYGGenerateHeader($selector = null,$cssname = null)
     {
+        if($this->_loaded) return;
+        
         if( !$selector ) $selector = 'textarea.Parser';
 
 		$config = cms_config::get_instance();
@@ -66,6 +72,8 @@ class Parser extends CMSModule
 			if( is_file($fn) ) break;
 		}
 		$out = str_replace('{root_url}', $config['root_url'], file_get_contents($fn));
+		
+		$this->_loaded = true;
 		return $out;
     }
 } 
