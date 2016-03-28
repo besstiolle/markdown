@@ -11,8 +11,7 @@
 <script type="text/javascript" src="{root_url}/modules/Parser/lib/js/htmleditor.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	var textarea = $('textarea.Parser');
-	UIkit.htmleditor(textarea, { markdown:'true'});//, mode:'tab' });
+	$('textarea.Parser').each(function(){UIkit.htmleditor(this, { markdown:'true'})})
 });
 </script>
 <style>#oe_pagemenu{padding-left:0}#oe_mainarea ul.uk-htmleditor-navbar-nav{list-style: outside none none; margin:0}.CodeMirror-wrap pre{display: block;}</style>
